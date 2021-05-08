@@ -1,0 +1,30 @@
+server:
+  port: 8761
+spring:
+  profiles:
+    active: dev
+  application:
+    name: passcloud-eureka
+  cloud:
+    inetutils:
+      ignored-interfaces: #忽略这些配置
+        - docker0
+        - veth.*
+        - VM.*
+security:
+  basic:
+    enabled: true
+  user:
+    name: root
+    password: root
+
+eureka:
+  server:
+    enable-self-preservation: false #自我保护机制
+  instance:
+    hostname: localhost #服务端实例的名字
+  client:
+    register-with-eureka: false #是否向eureka注册自己
+    fetch-registry: false #是否从eureka中获取注册信息
+    service-url: #监控页面
+      dafaultZone: http://${eureka.instance.hostname}:${server.port}/eureka

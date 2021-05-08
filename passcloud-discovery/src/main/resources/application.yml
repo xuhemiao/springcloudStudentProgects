@@ -1,0 +1,27 @@
+server:
+  port: 8080 #端口号
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri:
+  profiles:
+    active: dev #开启哪个配置
+  application:
+    name: passcloud-discovery #名字
+  rabbitmq: #配置消息中间件的地址。端口号，账号，密码
+    host: loclahost
+    port: 1567
+    username: guest
+    password: guest
+  boot:
+    admin:
+      username: admin
+      password: admin
+security:
+  user: #安全的账号密码
+    name: admin
+    password: admin
+
+
